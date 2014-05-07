@@ -9,6 +9,6 @@ setup(
     description=('Blackjack shoe/deck and validation utilities'),
     long_description=read('README.md')
     packages=['pyblackjack', 'pyblackjack.tests'],
-    license='MIT'
+    license='MIT',
     test_suite='pyblackjack.tests.test_pyblackjack'
     )
