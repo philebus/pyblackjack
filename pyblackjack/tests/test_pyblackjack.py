@@ -1,5 +1,5 @@
 import unittest
-from .. import blackjack
+from .. import pyblackjack
 
 class TestUtils(unittest.TestCase):
     """
@@ -10,7 +10,7 @@ class TestUtils(unittest.TestCase):
         """
         Test unmodified hand value method
         """
-        ut = blackjack.Utils()
+        ut = pyblackjack.Utils()
         self.assertEqual(ut._unmodified_hand_value([1, 2]), 11)
         self.assertEqual(ut._unmodified_hand_value([14, 17, 36]), 16)
         self.assertEqual(ut._unmodified_hand_value([50, 4]), 14)
@@ -22,7 +22,7 @@ class TestUtils(unittest.TestCase):
         """
         Test hand value method
         """
-        ut = blackjack.Utils()
+        ut = pyblackjack.Utils()
         self.assertEqual(ut.hand_value([1, 2]), 21)
         self.assertEqual(ut.hand_value([14, 17, 48, 52]), 19)
         self.assertEqual(ut.hand_value([40, 26]), 13)
@@ -34,7 +34,7 @@ class TestUtils(unittest.TestCase):
         """
         Test blackjack validation method
         """
-        ut = blackjack.Utils()
+        ut = pyblackjack.Utils()
         self.assertTrue(ut.blackjack([1, 2]))
         self.assertTrue(ut.blackjack([14, 17]))
         self.assertTrue(ut.blackjack([40, 4]))
@@ -46,7 +46,7 @@ class TestUtils(unittest.TestCase):
         """
         Test twenty_one validation method
         """
-        ut = blackjack.Utils()
+        ut = pyblackjack.Utils()
         self.assertTrue(ut.twenty_one([1, 10, 23]))
         self.assertTrue(ut.twenty_one([48, 52, 52, 29, 1]))
         self.assertTrue(ut.twenty_one([47, 12, 27]))
@@ -58,7 +58,7 @@ class TestUtils(unittest.TestCase):
         """
         Test bust validation method
         """
-        ut = blackjack.Utils()
+        ut = pyblackjack.Utils()
         self.assertTrue(ut.bust([9, 10, 49, 17]))
         self.assertTrue(ut.bust([1, 2, 42, 39]))
         self.assertTrue(ut.bust([52, 28, 29]))
@@ -70,7 +70,7 @@ class TestUtils(unittest.TestCase):
         """
         Test soft_17 validation method
         """
-        ut = blackjack.Utils()
+        ut = pyblackjack.Utils()
         self.assertTrue(ut.soft_17([1, 22]))
         self.assertTrue(ut.soft_17([40, 51, 25]))
         self.assertTrue(ut.soft_17([14, 36, 1]))
@@ -83,7 +83,7 @@ class TestUtils(unittest.TestCase):
         """
         Test aces validation method
         """
-        ut = blackjack.Utils()
+        ut = pyblackjack.Utils()
         self.assertTrue(ut.aces([1, 14]))
         self.assertTrue(ut.aces([1, 40]))
         self.assertTrue(ut.aces([14, 27]))
@@ -96,7 +96,7 @@ class TestUtils(unittest.TestCase):
         """
         Test surrender validation method
         """
-        ut = blackjack.Utils()
+        ut = pyblackjack.Utils()
         self.assertTrue(ut.surrender([1, 52]))
         self.assertTrue(ut.surrender([28, 17]))
         self.assertTrue(ut.surrender([40, 2]))
@@ -113,20 +113,20 @@ class TestShoe(unittest.TestCase):
         """
         Test deck length for build shoe method
         """
-        shoe = blackjack.Shoe()
+        shoe = pyblackjack.Shoe()
         self.assertEqual(len(shoe.cards), 52)
         
-        shoe = blackjack.Shoe(3)
+        shoe = pyblackjack.Shoe(3)
         self.assertEqual(len(shoe.cards), 156)
 
-        shoe = blackjack.Shoe(2)
+        shoe = pyblackjack.Shoe(2)
         self.assertNotEqual(len(shoe.cards), 52)
 
     def test_deal_cards(self):
         """
         Test hand length for build shoe method
         """
-        shoe = blackjack.Shoe()
+        shoe = pyblackjack.Shoe()
         hand = shoe.deal_cards(7)
         self.assertEqual(len(hand), 7)
         
@@ -141,7 +141,7 @@ class TestShoe(unittest.TestCase):
         """
         Test shoe object count of cards left and cards dealt
         """
-        shoe = blackjack.Shoe()
+        shoe = pyblackjack.Shoe()
         hand = shoe.deal_cards(7)
         self.assertEqual(shoe.cards_dealt, 7)
         self.assertEqual(shoe.cards_left, 45)
@@ -150,10 +150,10 @@ class TestShoe(unittest.TestCase):
         self.assertEqual(shoe.cards_dealt, 9)
         self.assertEqual(shoe.cards_left, 43)
 
-        shoe = blackjack.Shoe(2)
+        shoe = pyblackjack.Shoe(2)
         hand = shoe.deal_cards(4)
         self.assertEqual(shoe.cards_dealt, 4)
         self.assertEqual(shoe.cards_left, 100)
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.TextTestRunner(verbosity=2).run(suite())
