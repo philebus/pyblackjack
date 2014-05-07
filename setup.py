@@ -7,6 +7,9 @@ def read(fname):
 setup(
     name='pyblackjack',
     version='1.0',
+    author="Jim Krooskos",
+    author_email="krooskos@gmail.com",
+    url="https://github.com/jkrooskos/pyblackjack.git",
     description=('Blackjack shoe/deck and validation utilities'),
     long_description=read('README.md'),
     packages=['pyblackjack', 'pyblackjack.tests'],
