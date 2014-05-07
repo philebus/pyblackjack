@@ -1,5 +1,12 @@
 ##Python27 library for blackjack shoe/deck operations and hand validation utils
 
+##Installation:
+
+```python
+pip install git+https://github.com/jkrooskos/pyblackjack.git
+```
+
+
 ##Basic Usage:
 
 ###Create/use a shoe instance
