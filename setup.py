@@ -1,3 +1,4 @@
+import os
 from setuptools import setup
 
 def read(fname):
@@ -7,7 +8,7 @@ setup(
     name='pyblackjack',
     version='1.0',
     description=('Blackjack shoe/deck and validation utilities'),
-    long_description=read('README.md')
+    long_description=read('README.md'),
     packages=['pyblackjack', 'pyblackjack.tests'],
     license='MIT',
     test_suite='pyblackjack.tests.test_pyblackjack'
