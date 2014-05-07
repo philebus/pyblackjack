@@ -1,5 +1,87 @@
 """
-Blackjack library with utils and shoe/deck operations.
+Python2.7 library for blackjack shoe/deck operations and hand validation utils
+
+Author:  Jim Krooskos
+
+=============
+Installation:
+=============
+
+```
+pip install git+https://github.com/jkrooskos/pyblackjack.git
+```
+
+==============
+Basic Usage:
+==============
+
+Create/use a shoe instance::
+
+    >>> import pyblackjack
+
+    >>> shoe = pyblackjack.Shoe()
+    >>> hand = shoe.deal_cards(2)
+
+    >>> hand
+    [2, 50]
+
+Represent hand with rank and suit::
+
+    >>> [pyblackjack.CARDS[card] for card in hand]
+    ['Ks', '4c']
+
+    >>> shoe.cards_left
+    50
+
+    >>> shoe.cards_dealt
+    2
+
+Create multi-deck shoe::
+
+    >>> shoe = pyblackjack.Shoe(3)
+
+    >>> shoe.cards_left
+    156
+
+Create/use utils instance::
+
+    >>> import pyblackjack
+
+    >>> ut = pyblackjack.Utils()
+    >>> shoe = pyblackjack.Shoe()
+    >>> hand = shoe.deal_cards(3)
+
+    >>> [pyblackjack.CARDS[card] for card in hand]
+    ['Js', '4d' , 'Ac']
+
+Test for blackjack::
+
+    >>> ut.blackjack(hand)
+    False
+
+Test for 21::
+
+    >>> ut.twenty_one(hand)
+    False
+
+Test for bust::
+
+    >>> ut.bust(hand)
+    False
+
+Get hand value::
+
+    >>> ut.hand_value(hand)
+    15
+
+Test for soft 17::
+
+    >>> ut.soft_seventeen(hand)
+    False
+
+========
+Contents
+========
 """
 
 import random
@@ -62,7 +144,6 @@ class Utils(object):
     def blackjack(hand):
         """
         Returns True if hand is a blackjack.
-        Hand must contain two cards, otherwise an exception is raised.
         """
         return len(hand) == 2 and len(set(hand) & ACES) == 1 and len(set(hand) & TENS) == 1
 
@@ -122,7 +203,7 @@ class Shoe(object):
 
     def build_shoe(self, num_of_decks):
         """
-        Build deck.
+        Build deck with a variable number of decks.
         """
         self.num_of_decks = num_of_decks
         self.cards_left = num_of_decks * 52
@@ -138,7 +219,8 @@ class Shoe(object):
 
     def deal_cards(self, num_of_cards):
         """
-        Deal cards.
+        Deal n number of cards. Method removes cards from shoe,
+        updates cards_left attribute, and updates cards_dealt attribute.
         """
         cards = random.sample(self.cards, num_of_cards)
         for card in cards:
