@@ -68,7 +68,7 @@ False
 ```
 ##Further Documentation:
 
-Read the Docs:   <a href=http://pyblackjack/readthedocs.org/en/latest>pyblackjack</a>
+Read the Docs:   <a href=http://pyblackjack.readthedocs.org>pyblackjack</a>
 
 ##Licensing
  
