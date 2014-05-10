@@ -37,7 +37,7 @@ from pyblackjack import pyblackjack
 
 ###Create/use utils instance
 ```python
-import pyblackjack
+from pyblackjack import pyblackjack
 
 ut = pyblackjack.Utils()
 shoe = pyblackjack.Shoe()

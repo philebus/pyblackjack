@@ -45,7 +45,7 @@ Create multi-deck shoe::
 
 Create/use utils instance::
 
-    >>> import pyblackjack
+    >>> from pyblackjack import pyblackjack
 
     >>> ut = pyblackjack.Utils()
     >>> shoe = pyblackjack.Shoe()
