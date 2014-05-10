@@ -7,7 +7,7 @@ pip install git+https://github.com/jkrooskos/pyblackjack.git
 ```
 ##Basic Usage:
 
-###Create/use a shoe instance
+###Create and use a shoe instance
 ```python
 from pyblackjack import pyblackjack
 

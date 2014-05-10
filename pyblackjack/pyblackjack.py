@@ -17,7 +17,7 @@ Basic Usage:
 
 Create/use a shoe instance::
 
-    >>> import pyblackjack
+    >>> from pyblackjack import pyblackjack
 
     >>> shoe = pyblackjack.Shoe()
     >>> hand = shoe.deal_cards(2)
