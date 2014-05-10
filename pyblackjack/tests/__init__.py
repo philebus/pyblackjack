@@ -1,3 +1,7 @@
+"""
+Test module for pyblackjack
+"""
+
 from .. import pyblackjack
 import test_pyblackjack
 
