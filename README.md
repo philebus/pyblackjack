@@ -5,8 +5,6 @@
 ```python
 pip install git+https://github.com/jkrooskos/pyblackjack.git
 ```
-
-
 ##Basic Usage:
 
 ###Create/use a shoe instance
@@ -68,7 +66,9 @@ False
 >>> ut.soft_seventeen(hand)
 False
 ```
+##Further Documentation:
 
+Read the Docs:   <a href=http://pyblackjack.readthedocs.org>pyblackjack</a>
 
 ##Licensing
  
