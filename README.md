@@ -17,7 +17,7 @@ from pyblackjack import pyblackjack
 >>> hand
 [2, 50]
 
-#represent hand with rank and suit
+#represent hand with rank/suit
 >>>[pyblackjack.CARDS[card] for card in hand]
 ['Ks', '4c']
 
