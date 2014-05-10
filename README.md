@@ -9,7 +9,7 @@ pip install git+https://github.com/jkrooskos/pyblackjack.git
 
 ###Create/use a shoe instance
 ```python
-import pyblackjack
+from pyblackjack import pyblackjack
 
 >>> shoe = pyblackjack.Shoe()
 >>> hand = shoe.deal_cards(2)
